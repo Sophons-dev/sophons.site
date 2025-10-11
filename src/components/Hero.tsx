@@ -4,8 +4,8 @@ import { LinkedIn } from "./socials";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 items-start lg:justify-between">
-      <div className="w-full flex flex-col gap-6 items-center lg:items-start text-center lg:text-left">
+    <div className="flex flex-col lg:flex-row gap-8 items-start mt-[3rem] lg:justify-between">
+      <div className="w-full flex flex-col gap-4 items-center lg:items-start text-center lg:text-left">
         <div className="relative">
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl">
             Got an Idea?
