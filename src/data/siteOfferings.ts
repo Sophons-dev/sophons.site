@@ -38,7 +38,7 @@ export const siteOfferings: SiteOffering[] = [
     ],
     itemizedOptions: [
       {
-        label: "Monthly Maintenance Plan: starting at $250/mo.",
+        label: "Monthly Maintenance Plan",
         options: [
           "Security, updates, and performance monitoring",
           "Additional fees apply for advanced integrations",
@@ -59,7 +59,7 @@ export const siteOfferings: SiteOffering[] = [
     ],
     itemizedOptions: [
       {
-        label: "Monthly Maintenance Plan: starting at $470/mo.",
+        label: "Monthly Maintenance Plan",
         options: ["Upkeep fees for complex system integrations"],
       },
     ],
