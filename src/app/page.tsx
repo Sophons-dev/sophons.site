@@ -11,8 +11,8 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-[#14101E] to-[#1F192E]">
       <Header />
 
-      <div className="px-4 sm:px-8 lg:px-24 xl:px-48 py-8 flex flex-col gap-20 lg:gap-32 font-light">
-        <main className="prose-xl prose-headings dark:prose-invert flex flex-col gap-20 lg:gap-32">
+      <div className="px-4 sm:px-8 lg:px-24 xl:px-48 py-6 sm:py-8 flex flex-col gap-12 sm:gap-20 lg:gap-32 font-light">
+        <main className="prose-xl prose-headings dark:prose-invert flex flex-col gap-12 sm:gap-20 lg:gap-32">
           <Hero />
           <Pricing />
           <FAQ />
