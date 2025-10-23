@@ -32,7 +32,7 @@ export default function Hero() {
             Got an Idea?
           </motion.h1>
           <motion.span
-            className="block lg:absolute lg:bottom-1 text-xl sm:text-2xl lg:text-[28px] text-white font-light"
+            className="text-xl sm:text-2xl lg:text-[28px] text-white font-light"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >

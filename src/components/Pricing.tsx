@@ -1,167 +1,83 @@
 "use client";
 
 import { siteOfferings } from "@/data/siteOfferings";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 export default function Pricing() {
   return (
-    <motion.div
-      id="pricing"
-      className="pt-12"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <motion.div
-        className="relative mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        viewport={{ once: true }}
-      >
-        <motion.span
-          className="absolute -top-4 text-sm text-slate-400"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+    <div id="pricing" className="pt-12">
+      <div className="relative mb-12">
+        <span className="absolute -top-6 left-0 text-sm text-muted-foreground">
           Get an accurate estimate
-        </motion.span>
+        </span>
         <motion.h2
-          className="font-bold text-3xl lg:text-4xl text-[#A15AFF]"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.05 }}
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-white"
         >
           Free Consultation
         </motion.h2>
-      </motion.div>
+      </div>
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {siteOfferings.map((offering, index) => (
-          <motion.div
-            key={index}
-            className="bg-gray-800/50 p-4 sm:p-6 border border-gray-700/50 hover:border-gray-600/50 transition-colors"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{
-              scale: 1.05,
-              y: -10,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-            }}
-          >
-            <motion.h3
-              className="font-bold text-xl mb-3 text-white"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              {offering.title}
-            </motion.h3>
-            <motion.p
-              className="text-sm text-slate-300 mb-6 leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              {offering.description}
-            </motion.p>
+          <Card key={index} className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl">{offering.title}</CardTitle>
+              <CardDescription className="text-sm leading-relaxed">
+                {offering.description}
+              </CardDescription>
+            </CardHeader>
 
-            <motion.div
-              className="flex flex-col gap-2 mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              {offering.inclusions.map((inclusion, inclusionIndex) => (
-                <motion.span
-                  key={inclusionIndex}
-                  className={`text-sm ${
-                    inclusionIndex === 0
-                      ? "font-bold text-white"
-                      : "text-gray-300"
-                  }`}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.8 + index * 0.1 + inclusionIndex * 0.05,
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, x: 5 }}
-                >
-                  ✅ {inclusion}
-                </motion.span>
-              ))}
-            </motion.div>
-
-            {offering.itemizedOptions.length > 0 && (
-              <motion.div
-                className="mt-4 pt-4 border-t border-gray-700/50"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {offering.itemizedOptions.map((option, optionIndex) => (
-                  <motion.div
-                    key={optionIndex}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 1.0 + index * 0.1 + optionIndex * 0.05,
-                    }}
-                    viewport={{ once: true }}
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                {offering.inclusions.map((inclusion, inclusionIndex) => (
+                  <div
+                    key={inclusionIndex}
+                    className={`text-sm flex items-start gap-2 ${
+                      inclusionIndex === 0 ? "font-semibold" : ""
+                    }`}
                   >
-                    <motion.span
-                      className="text-sm font-bold text-white"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {option.label}
-                    </motion.span>
-                    <div className="flex flex-col mt-2">
-                      {option.options.map((subOption, subIndex) => (
-                        <motion.span
-                          key={subIndex}
-                          className="text-xs text-gray-400 ml-2"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            delay:
-                              1.1 +
-                              index * 0.1 +
-                              optionIndex * 0.05 +
-                              subIndex * 0.02,
-                          }}
-                          viewport={{ once: true }}
-                          whileHover={{ scale: 1.05, x: 5 }}
-                        >
-                          - {subOption}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
+                    <span className="text-green-500 mt-0.5">✓</span>
+                    <span>{inclusion}</span>
+                  </div>
                 ))}
-              </motion.div>
-            )}
-          </motion.div>
+              </div>
+
+              {offering.itemizedOptions.length > 0 && (
+                <div className="pt-4 border-t">
+                  {offering.itemizedOptions.map((option, optionIndex) => (
+                    <div key={optionIndex} className="space-y-2">
+                      <div className="text-sm font-semibold">
+                        {option.label}
+                      </div>
+                      <div className="space-y-1 ml-2">
+                        {option.options.map((subOption, subIndex) => (
+                          <div
+                            key={subIndex}
+                            className="text-xs text-muted-foreground"
+                          >
+                            • {subOption}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
         ))}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

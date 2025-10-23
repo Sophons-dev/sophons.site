@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="px-4 py-4 sm:px-8 lg:px-24 xl:px-48 sticky top-0 z-50 bg-background/80 backdrop-blur-sm"
+      className="px-4 py-4 sm:px-8 lg:px-24 xl:px-48 sticky top-0 z-50 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
