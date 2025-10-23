@@ -56,17 +56,6 @@ export default function Hero() {
           —building high-converting landing pages, streamlining workflows with
           internal tools, and handling the tech so you can focus on innovation.
         </motion.p>
-        <motion.a
-          href="mailto:sophons.dev@gmail.com"
-          className="w-fit px-6 sm:px-8 py-3 bg-[#4285F4] hover:bg-[#3367d6] transition-colors text-white font-medium text-base sm:text-lg text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get in touch!
-        </motion.a>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,12 +68,6 @@ export default function Hero() {
               transition={{ duration: 0.2 }}
             >
               <LinkedIn />
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: -5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <CopyMail version={"icon-only"} />
             </motion.div>
           </motion.div>
         </motion.div>
