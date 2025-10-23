@@ -1,67 +1,81 @@
+"use client";
+
 import { siteOfferings } from "@/data/siteOfferings";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function Pricing() {
   return (
     <div id="pricing" className="pt-12">
       <div className="relative mb-12">
-        <span className="absolute -top-4 text-sm text-slate-400">
+        <span className="absolute -top-6 left-0 text-sm text-muted-foreground">
           Get an accurate estimate
         </span>
-        <h2 className="font-bold text-3xl lg:text-4xl text-[#A15AFF]">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-white"
+        >
           Free Consultation
-        </h2>
+        </motion.h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {siteOfferings.map((offering, index) => (
-          <div
-            key={index}
-            className="bg-gray-800/50 rounded-xl p-4 sm:p-6 border border-gray-700/50 hover:border-gray-600/50 transition-colors"
-          >
-            <h3 className="font-bold text-xl mb-3 text-white">
-              {offering.title}
-            </h3>
-            <p className="text-sm text-slate-300 mb-6 leading-relaxed">
-              {offering.description}
-            </p>
+          <Card key={index} className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl">{offering.title}</CardTitle>
+              <CardDescription className="text-sm leading-relaxed">
+                {offering.description}
+              </CardDescription>
+            </CardHeader>
 
-            <div className="flex flex-col gap-2 mb-6">
-              {offering.inclusions.map((inclusion, inclusionIndex) => (
-                <span
-                  key={inclusionIndex}
-                  className={`text-sm ${
-                    inclusionIndex === 0
-                      ? "font-bold text-white"
-                      : "text-gray-300"
-                  }`}
-                >
-                  ✅ {inclusion}
-                </span>
-              ))}
-            </div>
-
-            {offering.itemizedOptions.length > 0 && (
-              <div className="mt-4 pt-4 border-t border-gray-700/50">
-                {offering.itemizedOptions.map((option, optionIndex) => (
-                  <div key={optionIndex}>
-                    <span className="text-sm font-bold text-white">
-                      {option.label}
-                    </span>
-                    <div className="flex flex-col mt-2">
-                      {option.options.map((subOption, subIndex) => (
-                        <span
-                          key={subIndex}
-                          className="text-xs text-gray-400 ml-2"
-                        >
-                          - {subOption}
-                        </span>
-                      ))}
-                    </div>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                {offering.inclusions.map((inclusion, inclusionIndex) => (
+                  <div
+                    key={inclusionIndex}
+                    className={`text-sm flex items-start gap-2 ${
+                      inclusionIndex === 0 ? "font-semibold" : ""
+                    }`}
+                  >
+                    <span className="text-green-500 mt-0.5">✓</span>
+                    <span>{inclusion}</span>
                   </div>
                 ))}
               </div>
-            )}
-          </div>
+
+              {offering.itemizedOptions.length > 0 && (
+                <div className="pt-4 border-t">
+                  {offering.itemizedOptions.map((option, optionIndex) => (
+                    <div key={optionIndex} className="space-y-2">
+                      <div className="text-sm font-semibold">
+                        {option.label}
+                      </div>
+                      <div className="space-y-1 ml-2">
+                        {option.options.map((subOption, subIndex) => (
+                          <div
+                            key={subIndex}
+                            className="text-xs text-muted-foreground"
+                          >
+                            • {subOption}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>
