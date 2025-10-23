@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import About from "@/components/About";
-import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 
 export default function Home() {

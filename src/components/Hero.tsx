@@ -1,6 +1,5 @@
 "use client";
 
-import CopyMail from "./copy-mail";
 import { LinkedIn } from "./socials";
 import { motion } from "framer-motion";
 
@@ -115,7 +114,7 @@ export default function Hero() {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <span className="text-gray-500">const</span> idea ={" "}
-              <span className="text-green-400">"your vision"</span>;
+              <span className="text-green-400">`&#34;your vision&#34;`</span>;
             </motion.div>
             <motion.div
               className="text-blue-400"
@@ -127,12 +126,12 @@ export default function Hero() {
               <span className="text-purple-400">build</span>(idea);
             </motion.div>
             <motion.div
-              className="text-gray-300"
+              className="text-gray-400"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
             >
-              <span className="text-gray-500">//</span> We make it happen
+              {"// We make it happen"}
             </motion.div>
             <motion.div
               className="text-yellow-400"
@@ -141,7 +140,7 @@ export default function Hero() {
               transition={{ delay: 1.4, duration: 0.5 }}
             >
               <span className="text-gray-500">return</span>{" "}
-              <span className="text-green-400">"success"</span>;
+              <span className="text-green-400">`&#34;success&#34;`</span>;
             </motion.div>
           </motion.div>
           <motion.div
