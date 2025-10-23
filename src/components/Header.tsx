@@ -107,7 +107,7 @@ export default function Header() {
                 { href: "#pricing", text: "Pricing" },
                 { href: "#faq", text: "FAQ" },
                 { href: "#about", text: "About" },
-                { href: "#contact", text: "Contact" },
+                // { href: "#contact", text: "Contact" },
               ].map((item) => (
                 <li key={item.text}>
                   <a
